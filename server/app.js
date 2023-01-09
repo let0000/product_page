@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const session = require("express-session");
+const fs = require("fs");
 
 app.use(
   session({
@@ -16,6 +17,14 @@ app.use(
 
 const server = app.listen(3000, () => {
   console.log("Server started. port 3000.");
+});
+
+let sql = require("./sql.js");
+
+fs.watchFile(__dirname + "/sql.js", (curr, prev) => {
+  console.log("sql 변경시 재시작 없이 반영되도록 함.");
+  delete require.cache[require.resolve("./sql.js")];
+  sql = require("./sql.js");
 });
 
 const db = {
@@ -37,8 +46,6 @@ app.post("/api/logout", async (request, res) => {
   request.session.destroy();
   res.send("ok");
 });
-
-const sql = require("./sql.js");
 
 app.post("/apirole/:alias", async (request, res) => {
   if (!request.session.email) {
