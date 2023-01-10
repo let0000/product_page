@@ -45,7 +45,9 @@
                     주문하기
                   </button>
                 </div>
-                <small class="text-dark">{{ product.product_price }}원</small>
+                <small class="text-dark"
+                  >{{ getCurrencyFormat(product.product_price) }}원</small
+                >
               </div>
             </div>
           </div>
@@ -66,6 +68,9 @@ export default {
     this.getProductList();
   },
   methods: {
+    getCurrencyFormat(value) {
+      return this.$currencyFormat(value);
+    },
     async getProductList() {
       this.productList = await this.$api("/api/productList", {});
       console.log(this.productList);
