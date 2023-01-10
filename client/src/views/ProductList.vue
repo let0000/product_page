@@ -13,23 +13,23 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div
+            class="col-xl-3 col-lg-4 col-md-6"
+            :key="i"
+            v-for="(product, i) in productList"
+          >
             <div class="card" style="width: 18rem">
               <a href="product_detail.html"
-                ><img
-                  src="https://img.danawa.com/prod_img/500000/635/072/img/18072635_1.jpg?shrink=330:330&_v=20221026133622"
-                  class="card-img-top"
-                  alt="..."
-                />
+                ><img :src="product.path" class="card-img-top" alt="..." />
               </a>
               <div class="card-body">
                 <h5 class="card-title">
-                  CHERRY MX BOARD 2.0S WIRELESS (화이트, 적축)
+                  {{ product.product_name }}
                 </h5>
                 <p class="card-text">
-                  <span class="badge bg-dark">전자제품</span>
-                  <span class="badge bg-dark">컴퓨터</span>
-                  <span class="badge bg-dark">악세사리</span>
+                  <span class="badge bg-dark">{{ product.category1 }}</span>
+                  <span class="badge bg-dark">{{ product.category2 }}</span>
+                  <span class="badge bg-dark">{{ product.category3 }}</span>
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group" role="group">
@@ -46,249 +46,7 @@
                       주문하기
                     </button>
                   </div>
-                  <small class="text-dark">149,000원</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="card" style="width: 18rem">
-              <img
-                src="https://img.danawa.com/prod_img/500000/482/852/img/15852482_1.jpg?shrink=330:330&_v=20221213095007"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">
-                  갤럭시 갤라즈 GALAX EX-03 게이밍 마우스
-                </h5>
-                <p class="card-text">
-                  <span class="badge bg-dark">전자제품</span>
-                  <span class="badge bg-dark">컴퓨터</span>
-                  <span class="badge bg-dark">악세사리</span>
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group" role="group">
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-outline-secondary"
-                    >
-                      장바구니 담기
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-outline-secondary"
-                    >
-                      주문하기
-                    </button>
-                  </div>
-                  <small class="text-dark">20,590원</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="card" style="width: 18rem">
-              <img
-                src="https://img.danawa.com/prod_img/500000/647/712/img/17712647_1.jpg?shrink=330:330&_v=20221216152011"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">MSI 프로 MP273 IPS 아이케어 무결점</h5>
-                <p class="card-text">
-                  <span class="badge bg-dark">전자제품</span>
-                  <span class="badge bg-dark">컴퓨터</span>
-                  <span class="badge bg-dark">악세사리</span>
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group" role="group">
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-outline-secondary"
-                    >
-                      장바구니 담기
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-outline-secondary"
-                    >
-                      주문하기
-                    </button>
-                  </div>
-                  <small class="text-dark">165,900원</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="card" style="width: 18rem">
-              <img
-                src="https://img.danawa.com/prod_img/500000/198/929/img/15929198_1.jpg?shrink=330:330&_v=20221104100806"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">비비텍 BH577 (정품)</h5>
-                <p class="card-text">
-                  <span class="badge bg-dark">전자제품</span>
-                  <span class="badge bg-dark">빔프로젝트</span>
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group" role="group">
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-outline-secondary"
-                    >
-                      장바구니 담기
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-outline-secondary"
-                    >
-                      주문하기
-                    </button>
-                  </div>
-                  <small class="text-dark">803,880원</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="card" style="width: 18rem">
-              <img
-                src="https://img.danawa.com/prod_img/500000/635/072/img/18072635_1.jpg?shrink=330:330&_v=20221026133622"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">
-                  CHERRY MX BOARD 2.0S WIRELESS (화이트, 적축)
-                </h5>
-                <p class="card-text">
-                  <span class="badge bg-dark">전자제품</span>
-                  <span class="badge bg-dark">컴퓨터</span>
-                  <span class="badge bg-dark">악세사리</span>
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group" role="group">
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-outline-secondary"
-                    >
-                      장바구니 담기
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-outline-secondary"
-                    >
-                      주문하기
-                    </button>
-                  </div>
-                  <small class="text-dark">149,000원</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="card" style="width: 18rem">
-              <img
-                src="https://img.danawa.com/prod_img/500000/482/852/img/15852482_1.jpg?shrink=330:330&_v=20221213095007"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">
-                  갤럭시 갤라즈 GALAX EX-03 게이밍 마우스
-                </h5>
-                <p class="card-text">
-                  <span class="badge bg-dark">전자제품</span>
-                  <span class="badge bg-dark">컴퓨터</span>
-                  <span class="badge bg-dark">악세사리</span>
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group" role="group">
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-outline-secondary"
-                    >
-                      장바구니 담기
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-outline-secondary"
-                    >
-                      주문하기
-                    </button>
-                  </div>
-                  <small class="text-dark">20,590원</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="card" style="width: 18rem">
-              <img
-                src="https://img.danawa.com/prod_img/500000/647/712/img/17712647_1.jpg?shrink=330:330&_v=20221216152011"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">MSI 프로 MP273 IPS 아이케어 무결점</h5>
-                <p class="card-text">
-                  <span class="badge bg-dark">전자제품</span>
-                  <span class="badge bg-dark">컴퓨터</span>
-                  <span class="badge bg-dark">악세사리</span>
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group" role="group">
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-outline-secondary"
-                    >
-                      장바구니 담기
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-outline-secondary"
-                    >
-                      주문하기
-                    </button>
-                  </div>
-                  <small class="text-dark">165,900원</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="card" style="width: 18rem">
-              <img
-                src="https://img.danawa.com/prod_img/500000/198/929/img/15929198_1.jpg?shrink=330:330&_v=20221104100806"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">비비텍 BH577 (정품)</h5>
-                <p class="card-text">
-                  <span class="badge bg-dark">전자제품</span>
-                  <span class="badge bg-dark">빔프로젝트</span>
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group" role="group">
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-outline-secondary"
-                    >
-                      장바구니 담기
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-outline-secondary"
-                    >
-                      주문하기
-                    </button>
-                  </div>
-                  <small class="text-dark">803,880원</small>
+                  <small class="text-dark">{{ product.product_price }}원</small>
                 </div>
               </div>
             </div>
@@ -363,3 +121,22 @@
     </footer>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      productList: [],
+    };
+  },
+  created() {
+    this.getProductList();
+  },
+  methods: {
+    async getProductList() {
+      this.productList = await this.$api("/api/productList", {});
+      console.log(this.productList);
+    },
+  },
+};
+</script>
