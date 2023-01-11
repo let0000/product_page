@@ -28,7 +28,7 @@
               >
             </li>
             <li v-if="user.email != undefined">
-              <router-link class="nav-link" to="/create"
+              <router-link class="nav-link" to="/sales"
                 >제품등록페이지</router-link
               >
             </li>

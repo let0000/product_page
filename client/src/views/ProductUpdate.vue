@@ -1,18 +1,26 @@
 <template>
   <main class="mt-3">
     <div class="container">
-      <h2 class="text-center">제품 등록</h2>
+      <h2 class="text-center">제품 수정</h2>
       <div class="mb-3 row">
         <label class="col-md-3 col-form-label">제품명</label>
         <div class="col-md-9">
-          <input type="text" class="form-control" />
+          <input
+            type="text"
+            class="form-control"
+            v-model="productDetail.product_name"
+          />
         </div>
       </div>
       <div class="mb-3 row">
         <label class="col-md-3 col-form-label">제품가격</label>
         <div class="col-md-9">
           <div class="input-group mb-3">
-            <input type="number" class="form-control" />
+            <input
+              type="number"
+              class="form-control"
+              v-model="productDetail.product_price"
+            />
             <span class="input-group-text">원</span>
           </div>
         </div>
@@ -21,7 +29,11 @@
         <label class="col-md-3 col-form-label">배송비</label>
         <div class="col-md-9">
           <div class="input-group mb-3">
-            <input type="number" class="form-control" />
+            <input
+              type="number"
+              class="form-control"
+              v-model="productDetail.delivery_price"
+            />
             <span class="input-group-text">원</span>
           </div>
         </div>
@@ -30,7 +42,11 @@
         <label class="col-md-3 col-form-label">추가배송비(도서산간)</label>
         <div class="col-md-9">
           <div class="input-group mb-3">
-            <input type="number" class="form-control" />
+            <input
+              type="number"
+              class="form-control"
+              v-model="productDetail.add_delivery_price"
+            />
             <span class="input-group-text">원</span>
           </div>
         </div>
@@ -60,14 +76,22 @@
       <div class="mb-3 row">
         <label class="col-md-3 col-form-label">태그</label>
         <div class="col-md-9">
-          <input type="text" class="form-control" />
+          <input
+            type="text"
+            class="form-control"
+            v-model="productDetail.tags"
+          />
         </div>
       </div>
       <div class="mb-3 row">
         <label class="col-md-3 col-form-label">출고일</label>
         <div class="col-md-9">
           <div class="input-group mb-3">
-            <input type="number" class="form-control" />
+            <input
+              type="number"
+              class="form-control"
+              v-model="productDetail.outbound_days"
+            />
             <span class="input-group-text">일 이내 출고</span>
           </div>
         </div>
@@ -88,6 +112,12 @@
 
 <script>
 export default {
+  data() {
+    return {
+      productId: 0,
+      productDetail: {},
+    };
+  },
   computed: {
     user() {
       return this.$store.state.user;
@@ -99,9 +129,23 @@ export default {
       this.$router.push({ path: "/" });
     }
   },
+  created() {
+    this.productId = this.$route.query.product_id;
+    this.getProductDetail();
+  },
   methods: {
     goToList() {
       this.$router.push({ path: "/sales" });
+    },
+    async getProductDetail() {
+      this.productDetail = await this.$api("/api/productDetail", {
+        param: [this.productId],
+      });
+      if (this.productDetail.length > 0) {
+        this.productDetail = this.productDetail[0];
+        this.totalPrice = this.productDetail.product_price * this.total;
+      }
+      console.log(this.productDetail);
     },
   },
 };
